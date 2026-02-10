@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>14 февраля 💞</title>
+  <meta name="description" content="Милое приглашение на 14 февраля." />
+
+  <style>
+    :root{
+      --bg1:#fff1f7;
+      --bg2:#f5f7ff;
+      --card: rgba(255,255,255,.75);
+      --stroke: rgba(45, 20, 55, .10);
+      --text: #241226;
+      --muted: rgba(36,18,38,.70);
+      --accent:#ff5fa2;
+      --accent2:#7c8cff;
+      --shadow: 0 18px 55px rgba(28, 16, 33, .18);
+      --radius: 22px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      min-height:100vh;
+      background:
+        radial-gradient(900px 700px at 20% 10%, rgba(255,95,162,.18), transparent 55%),
+        radial-gradient(900px 700px at 80% 18%, rgba(124,140,255,.16), transparent 55%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 26px 16px 46px; }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .row{ grid-template-columns: 1fr; }
+    }
+
+    .hero{ padding: 22px; }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(36,18,38,.12);
+      background: rgba(255,255,255,.6);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(28px, 3.4vw, 44px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .accent{
+      color: var(--accent);
+      text-shadow: 0 0 22px rgba(255,95,162,.22);
+    }
+    .subtitle{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height:1.48;
+      max-width: 60ch;
+    }
+
+    .btn{
+      border:0;
+      cursor:pointer;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing:.2px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      user-select:none;
+      transition: transform .12s ease, filter .12s ease;
+      text-decoration:none;
+    }
+    .btn:active{ transform: translateY(1px) scale(.99); }
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(255,95,162,.95), rgba(255,150,120,.95));
+      color:#1b1020;
+      filter: drop-shadow(0 12px 26px rgba(255,95,162,.22));
+    }
+    .btnGhost{
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(36,18,38,.12);
+      color: var(--text);
+    }
+    .small{ color: var(--muted); font-size: 13px; }
+
+    .side{ padding: 16px; display:grid; gap: 12px; }
+    .box{
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.55);
+      border:1px solid rgba(36,18,38,.10);
+    }
+    .box h3{ margin:0 0 8px; font-size: 14px; letter-spacing:.2px; }
+    .kv{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap: 8px 10px;
+      font-size: 14px;
+      align-items:start;
+    }
+    .k{ color: var(--muted); }
+    .v{ color: var(--text); font-weight: 650; }
+
+    .timer{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .tbox{
+      padding: 12px 10px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.52);
+      border:1px solid rgba(36,18,38,.10);
+      text-align:center;
+    }
+    .tbox .num{ font-size: 20px; font-weight: 900; }
+    .tbox .lab{ margin-top: 4px; font-size: 12px; color: var(--muted); }
+
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 860px){ .grid{ grid-template-columns: 1fr; } }
+
+    .tile{
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.55);
+      border:1px solid rgba(36,18,38,.10);
+      position:relative;
+      overflow:hidden;
+    }
+    .tile h4{ margin:0 0 8px; font-size: 16px; }
+    .tile p{ margin:0; color: var(--muted); line-height:1.45; font-size: 14px; }
+
+    .footer{ margin-top: 16px; text-align:center; color: var(--muted); font-size: 12px; }
+
+    /* Cute floating hearts */
+    .heart{
+      position:absolute;
+      font-size: 18px;
+      opacity:.35;
+      animation: drift 7s ease-in-out infinite;
+      pointer-events:none;
+      filter: drop-shadow(0 10px 18px rgba(255,95,162,.15));
+    }
+    @keyframes drift{
+      0%,100%{ transform: translateY(0) translateX(0) rotate(0deg); }
+      50%{ transform: translateY(-18px) translateX(10px) rotate(8deg); }
+    }
+    .h1{ top:18px; right:18px; animation-duration: 8s; }
+    .h2{ top:64px; right:54px; animation-duration: 10s; }
+    .h3{ bottom:18px; left:18px; animation-duration: 9s; }
+    .h4{ bottom:62px; left:56px; animation-duration: 11s; }
+
+    /* Overlay start screen */
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(900px 700px at 30% 10%, rgba(255,95,162,.25), transparent 55%),
+        radial-gradient(900px 700px at 80% 18%, rgba(124,140,255,.18), transparent 55%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 16px;
+      z-index: 9999;
+    }
+    .modal{
+      width:min(820px, 100%);
+      border-radius: 26px;
+      background: rgba(255,255,255,.72);
+      border:1px solid rgba(36,18,38,.10);
+      box-shadow: 0 20px 70px rgba(28, 16, 33, .22);
+      padding: 22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .modal h2{
+      margin:0 0 8px;
+      font-size: clamp(22px, 3vw, 34px);
+      letter-spacing:-.4px;
+      line-height:1.1;
+    }
+    .modal p{ margin:0; color: var(--muted); line-height:1.45; }
+    .choiceArea{
+      margin-top: 16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+      align-items:center;
+    }
+    .noWrap{
+      position:relative;
+      flex: 0 0 auto;
+    }
+    .hint{
+      margin-top: 12px;
+      color: rgba(36,18,38,.62);
+      font-size: 13px;
+      min-height: 18px;
+    }
+    .gif{
+      margin-top: 14px;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(36,18,38,.10);
+      background: rgba(255,255,255,.55);
+    }
+    .gif img{
+      width:100%;
+      display:block;
+      max-height: 220px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div class="heart h1">💖</div><div class="heart h2">💘</div><div class="heart h3">💗</div><div class="heart h4">💞</div>
+
+      <h2><span class="accent" id="toNameBig">Нася</span>, пойдём со мной на 14 февраля? 💞</h2>
+      <p>Будет уютно: роллы (одна позиция) + детективная игра + валентинка в конце.</p>
+
+      <div class="choiceArea">
+        <button class="btn btnPrimary" id="yesBtn">✅ Пойти</button>
+
+        <span class="noWrap">
+          <button class="btn btnGhost" id="noBtn">🙈 Не пойти</button>
+        </span>
+
+        <span class="small" id="fromNameBig">— @Zah1dace</span>
+      </div>
+
+      <div class="hint" id="hint"></div>
+
+      <div class="gif" aria-label="милый gif">
+        <img id="gifImg"
+             src="https://media.giphy.com/media/3o7abB06u9bNzA8lu8/giphy.gif"
+             alt="милый гиф" />
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" id="main" aria-hidden="true">
+    <section class="card hero">
+      <div class="heart h1">💖</div><div class="heart h2">💘</div><div class="heart h3">💗</div><div class="heart h4">💞</div>
+
+      <div class="pill">💌 14 февраля • уютно • вкусно • детектив</div>
+
+      <h1><span class="accent" id="toName">Нася</span>, я хочу провести этот вечер с тобой</h1>
+      <p class="subtitle">
+        План простой: роллы, детективная настолка и немного романтики.
+        Без спешки. Просто мы.
+      </p>
+
+      <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+        <a class="btn btnPrimary" id="rsvpBtn" href="#" target="_blank" rel="noopener">💬 Написать “я иду”</a>
+        <button class="btn btnGhost" id="copyBtn" type="button">🔗 Скопировать ссылку</button>
+        <span class="small" id="fromName">— @Zah1dace</span>
+      </div>
+    </section>
+
+    <div class="row" style="margin-top:16px;">
+      <aside class="card side">
+        <div class="box">
+          <h3>📍 Детали</h3>
+          <div class="kv">
+            <div class="k">Дата</div><div class="v" id="dateText">Суббота, 14 февраля</div>
+            <div class="k">Время</div><div class="v" id="timeText">17:00</div>
+            <div class="k">Где</div><div class="v" id="placeText">У нас дома</div>
+            <div class="k">Одежда</div><div class="v">Удобная 😊</div>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>⏳ До начала</h3>
+          <div class="timer">
+            <div class="tbox"><div class="num" id="dd">—</div><div class="lab">дней</div></div>
+            <div class="tbox"><div class="num" id="hh">—</div><div class="lab">часов</div></div>
+            <div class="tbox"><div class="num" id="mm">—</div><div class="lab">минут</div></div>
+            <div class="tbox"><div class="num" id="ss">—</div><div class="lab">секунд</div></div>
+          </div>
+          <p class="small" style="margin-top:10px;">
+            Мы дома, поэтому просто как удобно — главное, чтобы было тепло 😊
+          </p>
+        </div>
+      </aside>
+
+      <section class="card hero">
+        <h2 style="margin:0 0 10px; font-size: 20px;">🕵️‍♀️ План вечера (примерно)</h2>
+        <p class="subtitle" style="max-width:none;">
+          17:00 — роллы (одна позиция) и чай/напиток <br/>
+          17:30 — детективная игра (60–90 минут) <br/>
+          19:00 — перерыв: музыка и что-нибудь сладкое (если захотим) <br/>
+          19:30 — финал: валентинка 💞 и спокойный конец без спешки
+        </p>
+
+        <div class="grid">
+          <div class="tile">
+            <h4>🍣 Роллы</h4>
+            <p>Возьмём одну позицию — просто вкусно.</p>
+          </div>
+          <div class="tile">
+            <h4>🔍 Детектив</h4>
+            <p>Лёгкая кооперативная игра: вместе расследуем и смеёмся.</p>
+          </div>
+          <div class="tile">
+            <h4>💌 В конце</h4>
+            <p>Валентинка для тебя 💞 и спокойный финал без спешки.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">Сделано специально для тебя 💞</div>
+  </div>
+
+  <script>
+    // НАСТРОЙКИ
+    const INV = {
+      toName: "Нася",
+      fromName: "@Zah1dace",
+      dateText: "Суббота, 14 февраля",
+      timeText: "17:00",
+      placeText: "У нас дома",
+      messengerLink: "https://t.me/Zah1dace",
+      messengerText: "Я иду 💞",
+      // Таймер (локальное время устройства): YYYY-MM-DDTHH:MM:SS
+      startISO: "2026-02-14T17:00:00",
+      gifUrl: "https://media.giphy.com/media/3o7abB06u9bNzA8lu8/giphy.gif"
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    $("toName").textContent = INV.toName;
+    $("toNameBig").textContent = INV.toName;
+    $("fromName").textContent = "— " + INV.fromName;
+    $("fromNameBig").textContent = "— " + INV.fromName;
+    $("dateText").textContent = INV.dateText;
+    $("timeText").textContent = INV.timeText;
+    $("placeText").textContent = INV.placeText;
+
+    if (INV.gifUrl) $("gifImg").src = INV.gifUrl;
+
+    // RSVP button
+    const msg = encodeURIComponent(INV.messengerText);
+    let link = INV.messengerLink;
+    if (link.includes("t.me/") && !link.includes("?")) link += "?text=" + msg;
+    if (link.includes("wa.me/") && !link.includes("?")) link += "?text=" + msg;
+    $("rsvpBtn").href = link;
+
+    // Copy current URL
+    $("copyBtn").addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(window.location.href);
+        $("copyBtn").textContent = "✅ Скопировано";
+        setTimeout(()=> $("copyBtn").textContent = "🔗 Скопировать ссылку", 1500);
+      }catch(e){
+        alert("Не получилось скопировать автоматически. Скопируй адрес из строки браузера 🙂");
+      }
+    });
+
+    // Timer
+    const target = new Date(INV.startISO).getTime();
+    function tick(){
+      const now = Date.now();
+      const diff = Math.max(0, target - now);
+      const s = Math.floor(diff/1000);
+      const days = Math.floor(s / 86400);
+      const hrs  = Math.floor((s % 86400) / 3600);
+      const mins = Math.floor((s % 3600) / 60);
+      const secs = s % 60;
+
+      $("dd").textContent = String(days);
+      $("hh").textContent = String(hrs).padStart(2,"0");
+      $("mm").textContent = String(mins).padStart(2,"0");
+      $("ss").textContent = String(secs).padStart(2,"0");
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // Start screen “пойти / не пойти”
+    const overlay = $("overlay");
+    const main = $("main");
+    const yesBtn = $("yesBtn");
+    const noBtn = $("noBtn");
+    const hint = $("hint");
+
+    const hints = [
+      "Ты точно уверена? 🥺",
+      "Я уже всё подготовил… 💞",
+      "И детектив тоже… 🕵️‍♀️",
+      "Ладно, давай так: просто чай ☕",
+      "Окей… но я всё равно буду ждать 💗",
+      "Ну всё, ты попалась 😄"
+    ];
+    let tries = 0;
+
+    function openInvite(){
+      overlay.style.display = "none";
+      main.setAttribute("aria-hidden","false");
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
+
+    yesBtn.addEventListener("click", openInvite);
+
+    function moveNo(){
+      tries++;
+      hint.textContent = hints[Math.min(tries-1, hints.length-1)];
+
+      if (tries >= 6){
+        noBtn.textContent = "😌 Ладно, пойти";
+        noBtn.classList.remove("btnGhost");
+        noBtn.classList.add("btnPrimary");
+        noBtn.onclick = openInvite;
+        noBtn.onmouseenter = null;
+        noBtn.onmousedown = null;
+        return;
+      }
+
+      const modal = noBtn.closest(".modal");
+      const rect = modal.getBoundingClientRect();
+      const btnRect = noBtn.getBoundingClientRect();
+
+      const maxX = rect.width - btnRect.width - 24;
+      const maxY = rect.height - btnRect.height - 24;
+
+      const x = 12 + Math.floor(Math.random() * Math.max(12, maxX));
+      const y = 12 + Math.floor(Math.random() * Math.max(12, maxY));
+
+      noBtn.style.position = "absolute";
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNo);
+    noBtn.addEventListener("mousedown", (e) => { e.preventDefault(); moveNo(); });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") openInvite();
+    });
+  </script>
+</body>
+</html>
